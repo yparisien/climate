@@ -13,7 +13,7 @@ class WindowsTest extends TestBase
                             ->makePartial()
                             ->shouldAllowMockingProtectedMethods();
 
-        $system->shouldReceive('exec')->with('mode', true)->andReturn(['Height: 100', 'Width: 50']);
+        $system->shouldReceive('exec')->with('mode CON', true)->andReturn(['Height: 100', 'Width: 50']);
 
         $this->assertEquals(50, $system->width());
     }
@@ -26,7 +26,7 @@ class WindowsTest extends TestBase
                             ->makePartial()
                             ->shouldAllowMockingProtectedMethods();
 
-        $system->shouldReceive('exec')->with('mode', true)->andReturn('error');
+        $system->shouldReceive('exec')->with('mode CON', true)->andReturn('error');
 
         $this->assertNull($system->width());
     }
@@ -39,7 +39,7 @@ class WindowsTest extends TestBase
                             ->makePartial()
                             ->shouldAllowMockingProtectedMethods();
 
-        $system->shouldReceive('exec')->with('mode', true)->andReturn(['Height: 100', 'Width: 50']);
+        $system->shouldReceive('exec')->with('mode CON', true)->andReturn(['Height: 100', 'Width: 50']);
 
         $this->assertEquals(100, $system->height());
     }
@@ -52,7 +52,7 @@ class WindowsTest extends TestBase
                             ->makePartial()
                             ->shouldAllowMockingProtectedMethods();
 
-        $system->shouldReceive('exec')->with('mode', true)->andReturn('error');
+        $system->shouldReceive('exec')->with('mode CON', true)->andReturn('error');
 
         $this->assertNull($system->height());
     }
